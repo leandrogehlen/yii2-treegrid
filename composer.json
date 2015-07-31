@@ -1,0 +1,28 @@
+{
+    "name": "leandrogehlen/yii2-treegrid",
+    "description": "Extension for Yii2 Framework to work with jQuery TreeGrid",
+    "keywords": ["yii2", "tree", "treeview", "treegrid", "interface"],
+    "type": "yii2-extension",
+    "license": "BSD-3-Clause",
+    "support": {
+        "issues": "https://github.com/leandrogehlen/yii2-treegrid/issues",
+        "source": "https://github.com/leandrogehlen/yii2-treegrid"
+    },
+    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "Leandro Guindani Gehlen",
+            "email": "leandrogehlen@gmail.com"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "2.0.*",
+        "bower-asset/jquery-treegrid": "0.3.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "3.7.*"
+    },
+    "autoload": {
+        "psr-4": { "leandrogehlen\\treegrid\\": "" }
+    }
+}
