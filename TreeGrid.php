@@ -158,6 +158,13 @@ class TreeGrid extends Widget {
             throw new InvalidConfigException('The "formatter" property must be either a Format object or a configuration array.');
         }
 
+        if (!$this->keyColumnName) {
+            throw new InvalidConfigException('The keyColumnName must be specified"');
+        }
+        if (!$this->parentColumnName) {
+            throw new InvalidConfigException('The parentColumnName must be specified"');
+        }
+
         $this->initColumns();
     }
 
