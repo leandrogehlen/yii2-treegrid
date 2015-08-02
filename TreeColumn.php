@@ -23,35 +23,42 @@ class TreeColumn extends Object {
      * @var TreeGrid the grid view object that owns this column.
      */
     public $grid;
+
     /**
      * @var string the header cell content. Note that it will not be HTML-encoded.
      */
     public $header;
+
     /**
      * @var string the footer cell content. Note that it will not be HTML-encoded.
      */
     public $footer;
+
     /**
      * @var callable This is a callable that will be used to generate the content of each cell.
      * The signature of the function should be the following: `function ($model, $key, $index, $column)`.
      * Where `$model`, `$key`, and `$index` refer to the model, key and index of the row currently being rendered
-     * and `$column` is a reference to the [[Column]] object.
+     * and `$column` is a reference to the [[TreeColumn]] object.
      */
     public $content;
+
     /**
      * @var boolean whether this column is visible. Defaults to true.
      */
     public $visible = true;
+
     /**
      * @var array the HTML attributes for the column group tag.
      * @see \yii\helpers\Html::renderTagAttributes() for details on how attributes are being rendered.
      */
     public $options = [];
+
     /**
      * @var array the HTML attributes for the header cell tag.
      * @see \yii\helpers\Html::renderTagAttributes() for details on how attributes are being rendered.
      */
     public $headerOptions = [];
+
     /**
      * @var array|\Closure the HTML attributes for the data cell tag. This can either be an array of
      * attributes or an anonymous function ([[Closure]]) that returns such an array.
@@ -63,6 +70,7 @@ class TreeColumn extends Object {
      * @see \yii\helpers\Html::renderTagAttributes() for details on how attributes are being rendered.
      */
     public $contentOptions = [];
+
     /**
      * @var array the HTML attributes for the footer cell tag.
      * @see \yii\helpers\Html::renderTagAttributes() for details on how attributes are being rendered.
@@ -76,6 +84,7 @@ class TreeColumn extends Object {
      * Also, if [[label]] is not specified, the label associated with the attribute will be displayed.
      */
     public $attribute;
+
     /**
      * @var string label to be displayed in the [[header|header cell]] and also to be used as the sorting
      * link label when sorting is enabled for this column.
@@ -84,12 +93,13 @@ class TreeColumn extends Object {
      * Otherwise [[\yii\helpers\Inflector::camel2words()]] will be used to get a label.
      */
     public $label;
+
     /**
      * @var boolean whether the header label should be HTML-encoded.
      * @see label
-     * @since 2.0.1
      */
     public $encodeLabel = true;
+
     /**
      * @var string|\Closure an anonymous function or a string that is used to determine the value to display in the current column.
      *
@@ -105,6 +115,7 @@ class TreeColumn extends Object {
      * If this is not set, `$model[$attribute]` will be used to obtain the value, where `$attribute` is the value of [[attribute]].
      */
     public $value;
+
     /**
      * @var string|array in which format should the value of each data model be displayed as (e.g. `"raw"`, `"text"`, `"html"`,
      * `['date', 'php:Y-m-d']`). Supported formats are determined by the [[GridView::formatter|formatter]] used by
@@ -234,6 +245,5 @@ class TreeColumn extends Object {
         }
         return null;
     }
-
 
 } 
