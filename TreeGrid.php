@@ -159,10 +159,10 @@ class TreeGrid extends Widget {
         }
 
         if (!$this->keyColumnName) {
-            throw new InvalidConfigException('The keyColumnName must be specified"');
+            throw new InvalidConfigException('The "keyColumnName" property must be specified"');
         }
         if (!$this->parentColumnName) {
-            throw new InvalidConfigException('The parentColumnName must be specified"');
+            throw new InvalidConfigException('The "parentColumnName" property must be specified"');
         }
 
         $this->initColumns();
