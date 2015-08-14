@@ -64,6 +64,13 @@ class TreeGrid extends Widget {
     public $emptyText;
 
     /**
+     * @var array the HTML attributes for the emptyText of the list view.
+     * The "tag" element specifies the tag name of the emptyText element and defaults to "div".
+     * @see \yii\helpers\Html::renderTagAttributes() for details on how attributes are being rendered.
+     */
+    public $emptyTextOptions = ['class' => 'empty'];
+
+    /**
      * @var boolean whether to show the header section of the grid table.
      */
     public $showHeader = true;
