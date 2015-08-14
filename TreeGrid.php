@@ -14,6 +14,7 @@ use yii\i18n\Formatter;
 
 /**
  * TreeGrid renders a jQuery TreeGrid component.
+ * The code was based in: https://github.com/yiisoft/yii2/blob/master/framework/grid/GridView.php
  *
  * @see https://github.com/maxazan/jquery-treegrid
  * @author Leandro Gehlen <leandrogehlen@gmail.com>

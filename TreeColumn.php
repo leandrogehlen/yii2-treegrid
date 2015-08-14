@@ -14,6 +14,7 @@ use yii\helpers\Inflector;
 
 /**
  * Column is the base class of all [[TreeGrid]] column classes.
+ * The code was based in: https://github.com/yiisoft/yii2/blob/master/framework/grid/DataColumn.php
  *
  * @author Leandro Gehlen <leandrogehlen@gmail.com>
  */
