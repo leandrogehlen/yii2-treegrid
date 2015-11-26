@@ -93,16 +93,21 @@ class TreeController extends Controller
 ```php
   use leandrogehlen\treegrid\TreeGrid;
   
-  <?= TreeGrid::widget([
-      'dataProvider' => $dataProvider,
-      'keyColumnName' => 'id',
-      'parentColumnName' => 'parent_id',
-      'columns' => [
-          'id',
-          'description',
-          ['class' => 'yii\grid\ActionColumn']
-      ]        
-  ]); ?>
+<?= TreeGrid::widget([
+        'dataProvider' => $dataProvider,
+        'keyColumnName' => 'id',
+        'parentColumnName' => 'parent_id',
+        'parentRoot' => '0', //first parentId value
+        'pluginOptions' => [
+            'initialState' => 'collapsed',
+        ],
+        'columns' => [
+            'name',
+            'id',
+            'parent_id',
+            ['class' => 'yii\grid\ActionColumn']
+        ]     
+      ]); ?>
 ```
 
 
