@@ -135,6 +135,11 @@ class TreeGrid extends Widget {
     public $parentColumnName;
 
     /**
+     * @var string root of parent column used to build tree
+     */
+    public $parentRoot = null;
+
+    /**
      * @var array grid column configuration. Each array element represents the configuration
      * for one particular grid column.
      * @see \yii\grid::$columns for details.
@@ -285,11 +290,11 @@ class TreeGrid extends Widget {
      */
     public function renderItems()
     {
-        $models = array_values($this->dataProvider->getModels());
-        $keys = $this->dataProvider->getKeys();
+        $models = $this->dataProvider->getModels();
         $rows = [];
+        $models = $this->buildTree($models,$this->parentRoot);
         foreach ($models as $index => $model) {
-            $key = $keys[$index];
+            $key = $model->{$this->keyColumnName};
             if ($this->beforeRow !== null) {
                 $row = call_user_func($this->beforeRow, $model, $key, $index, $this);
                 if (!empty($row)) {
@@ -374,6 +379,26 @@ class TreeGrid extends Widget {
                 $this->columns[] = $name;
             }
         }
+    }
+    
+    /**
+     * build tree
+     * @param array $elements
+     * @param string $parentId
+     * @return array
+     */
+    protected  function buildTree(array $elements, $parentId = null) {
+        $branch = [];
+        foreach ($elements as $key => $element) {
+            if ($element[$this->parentColumnName] == $parentId) {
+                $children = $this->buildTree($elements, $element[$this->keyColumnName]);
+                $branch[$key] = $element;
+                if ($children) {
+                    $branch = $branch + $children;
+                }
+            }
+        }
+        return $branch;
     }
 
 } 
