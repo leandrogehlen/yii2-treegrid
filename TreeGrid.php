@@ -146,6 +146,7 @@ class TreeGrid extends Widget {
      */
     public $columns = [];
 
+    public $collapsed = true;
     /**
      * Initializes the grid view.
      * This method will initialize required property values and instantiate [[columns]] objects.
@@ -249,6 +250,9 @@ class TreeGrid extends Widget {
 
         $parentId = ArrayHelper::getValue($model, $this->parentColumnName);
         if ($parentId) {
+            if($this->collapsed){
+                Html::addCssStyle($options, 'display: none;');
+            }
             Html::addCssClass($options, "treegrid-parent-$parentId");
         }
 
