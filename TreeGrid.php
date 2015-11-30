@@ -292,10 +292,10 @@ class TreeGrid extends Widget {
      */
     public function renderItems()
     {
+        $rows = [];
         $models = array_values($this->dataProvider->getModels());
         $keys = $this->dataProvider->getKeys();
-        $rows = [];
-        $models = $this->buildTree($models,$this->parentRoot);
+        $models = $this->normalizeData($models,$this->parentRoot);
         foreach ($models as $index => $model) {
             $key = $keys[$index];
             if ($this->beforeRow !== null) {
@@ -383,25 +383,25 @@ class TreeGrid extends Widget {
             }
         }
     }
-    
+
     /**
-     * build tree
-     * @param array $elements
+     * Normalize tree data
+     * @param array $data
      * @param string $parentId
      * @return array
      */
-    protected  function buildTree(array $elements, $parentId = null) {
-        $branch = [];
-        foreach ($elements as $key => $element) {
+    protected function normalizeData(array $data, $parentId = null) {
+        $result = [];
+        foreach ($data as $element) {
             if ($element[$this->parentColumnName] == $parentId) {
-                $children = $this->buildTree($elements, $element[$this->keyColumnName]);
-                $branch[$key] = $element;
+                $result[] = $element;
+                $children = $this->normalizeData($data, $element[$this->keyColumnName]);
                 if ($children) {
-                    $branch = $branch + $children;
+                    $result = array_merge($result, $children);
                 }
             }
         }
-        return $branch;
+        return $result;
     }
 
 } 
