@@ -292,11 +292,12 @@ class TreeGrid extends Widget {
      */
     public function renderItems()
     {
-        $models = $this->dataProvider->getModels();
+        $models = array_values($this->dataProvider->getModels());
+        $keys = $this->dataProvider->getKeys();
         $rows = [];
         $models = $this->buildTree($models,$this->parentRoot);
         foreach ($models as $index => $model) {
-            $key = $model->{$this->keyColumnName};
+            $key = $keys[$index];
             if ($this->beforeRow !== null) {
                 $row = call_user_func($this->beforeRow, $model, $key, $index, $this);
                 if (!empty($row)) {
