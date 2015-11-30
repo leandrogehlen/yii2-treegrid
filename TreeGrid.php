@@ -135,9 +135,9 @@ class TreeGrid extends Widget {
     public $parentColumnName;
 
     /**
-     * @var string root of parent column used to build tree
+     * @var mixed parent column value of root elements from data
      */
-    public $parentRoot = null;
+    public $parentRootValue = null;
 
     /**
      * @var array grid column configuration. Each array element represents the configuration
@@ -295,7 +295,7 @@ class TreeGrid extends Widget {
         $rows = [];
         $models = array_values($this->dataProvider->getModels());
         $keys = $this->dataProvider->getKeys();
-        $models = $this->normalizeData($models,$this->parentRoot);
+        $models = $this->normalizeData($models,$this->parentRootValue);
         foreach ($models as $index => $model) {
             $key = $keys[$index];
             if ($this->beforeRow !== null) {

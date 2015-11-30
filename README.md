@@ -91,13 +91,13 @@ class TreeController extends Controller
 **View**
 
 ```php
-  use leandrogehlen\treegrid\TreeGrid;
+use leandrogehlen\treegrid\TreeGrid;
   
 <?= TreeGrid::widget([
         'dataProvider' => $dataProvider,
         'keyColumnName' => 'id',
         'parentColumnName' => 'parent_id',
-        'parentRoot' => '0', //first parentId value
+        'parentRootValue' => '0', //first parentId value
         'pluginOptions' => [
             'initialState' => 'collapsed',
         ],
