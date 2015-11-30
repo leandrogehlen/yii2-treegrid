@@ -8,7 +8,7 @@
         "issues": "https://github.com/leandrogehlen/yii2-treegrid/issues",
         "source": "https://github.com/leandrogehlen/yii2-treegrid"
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "authors": [
         {
             "name": "Leandro Guindani Gehlen",
