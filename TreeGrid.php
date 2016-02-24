@@ -294,8 +294,9 @@ class TreeGrid extends Widget {
     {
         $rows = [];
         $models = array_values($this->dataProvider->getModels());
-        $keys = $this->dataProvider->getKeys();
-        $models = $this->normalizeData($models,$this->parentRootValue);
+        $models = $this->normalizeData($models, $this->parentRootValue);
+        $keys = ArrayHelper::getColumn($models, $this->keyColumnName);
+
         foreach ($models as $index => $model) {
             $key = $keys[$index];
             if ($this->beforeRow !== null) {
