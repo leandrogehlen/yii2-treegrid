@@ -81,6 +81,7 @@ class TreeController extends Controller
         $query = Tree::find();
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            'pagination' => false
         ]);
 
         return $this->render('index', [
@@ -95,20 +96,20 @@ class TreeController extends Controller
 use leandrogehlen\treegrid\TreeGrid;
   
 <?= TreeGrid::widget([
-        'dataProvider' => $dataProvider,
-        'keyColumnName' => 'id',
-        'parentColumnName' => 'parent_id',
-        'parentRootValue' => '0', //first parentId value
-        'pluginOptions' => [
-            'initialState' => 'collapsed',
-        ],
-        'columns' => [
-            'name',
-            'id',
-            'parent_id',
-            ['class' => 'yii\grid\ActionColumn']
-        ]     
-      ]); ?>
+    'dataProvider' => $dataProvider,
+    'keyColumnName' => 'id',
+    'parentColumnName' => 'parent_id',
+    'parentRootValue' => '0', //first parentId value
+    'pluginOptions' => [
+        'initialState' => 'collapsed',
+    ],
+    'columns' => [
+        'name',
+        'id',
+        'parent_id',
+        ['class' => 'yii\grid\ActionColumn']
+    ]     
+]); ?>
 ```
 
 
