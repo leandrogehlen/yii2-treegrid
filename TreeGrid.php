@@ -19,10 +19,10 @@ use yii\i18n\Formatter;
  * @see https://github.com/maxazan/jquery-treegrid
  * @author Leandro Gehlen <leandrogehlen@gmail.com>
  */
-class TreeGrid extends Widget {
-
+class TreeGrid extends Widget
+{
     /**
-     * @var \yii\data\DataProviderInterface the data provider for the view. This property is required.
+     * @var \yii\data\DataProviderInterface|\yii\data\BaseDataProvider the data provider for the view. This property is required.
      */
     public $dataProvider;
 
@@ -404,5 +404,4 @@ class TreeGrid extends Widget {
         }
         return $result;
     }
-
 } 
