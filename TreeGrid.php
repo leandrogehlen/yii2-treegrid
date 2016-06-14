@@ -6,6 +6,7 @@ use Closure;
 use Yii;
 use yii\base\InvalidConfigException;
 use yii\base\Widget;
+use yii\db\ActiveQueryInterface;
 use yii\grid\DataColumn;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
@@ -293,10 +294,13 @@ class TreeGrid extends Widget
     public function renderItems()
     {
         $rows = [];
+        $this->dataProvider->setKeys([]);
         $models = array_values($this->dataProvider->getModels());
         $models = $this->normalizeData($models, $this->parentRootValue);
-        $keys = ArrayHelper::getColumn($models, $this->keyColumnName);
-
+        $this->dataProvider->setModels($models);
+        $this->dataProvider->setKeys(null);
+        $this->dataProvider->prepare();
+        $keys = $this->dataProvider->getKeys();
         foreach ($models as $index => $model) {
             $key = $keys[$index];
             if ($this->beforeRow !== null) {
