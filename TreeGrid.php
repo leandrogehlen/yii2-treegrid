@@ -6,7 +6,6 @@ use Closure;
 use Yii;
 use yii\base\InvalidConfigException;
 use yii\base\Widget;
-use yii\db\ActiveQueryInterface;
 use yii\grid\DataColumn;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
