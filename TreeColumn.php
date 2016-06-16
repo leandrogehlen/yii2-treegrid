@@ -18,8 +18,8 @@ use yii\helpers\Inflector;
  *
  * @author Leandro Gehlen <leandrogehlen@gmail.com>
  */
-class TreeColumn extends Object {
-
+class TreeColumn extends Object
+{
     /**
      * @var TreeGrid the grid view object that owns this column.
      */
@@ -222,8 +222,6 @@ class TreeColumn extends Object {
                 return $this->grid->emptyCell;
             }
         }
-
-
     }
 
     /**
@@ -246,5 +244,4 @@ class TreeColumn extends Object {
         }
         return null;
     }
-
 } 
