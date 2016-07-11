@@ -39,7 +39,7 @@ use yii\db\ActiveRecord;
  */
 class Tree extends ActiveRecord 
 {
-
+    public $level;
     /**
      * @inheritdoc
      */
@@ -99,17 +99,17 @@ use leandrogehlen\treegrid\TreeGrid;
     'dataProvider' => $dataProvider,
     'keyColumnName' => 'id',
     'parentColumnName' => 'parent_id',
+    'levelColumnName' => 'level',
     'parentRootValue' => '0', //first parentId value
     'pluginOptions' => [
         'initialState' => 'collapsed',
     ],
     'columns' => [
         'name',
+        'level',
         'id',
         'parent_id',
         ['class' => 'yii\grid\ActionColumn']
     ]     
 ]); ?>
 ```
-
-
