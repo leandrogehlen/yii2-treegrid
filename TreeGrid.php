@@ -135,6 +135,11 @@ class TreeGrid extends Widget
     public $parentColumnName;
 
     /**
+     * @var string name of model property to store levels
+     */
+    public $levelColumnName = null;
+
+    /**
      * @var mixed parent column value of root elements from data
      */
     public $parentRootValue = null;
@@ -394,12 +399,16 @@ class TreeGrid extends Widget
      * @param string $parentId
      * @return array
      */
-    protected function normalizeData(array $data, $parentId = null) {
+    protected function normalizeData(array $data, $parentId = null, $level = 0) {
         $result = [];
         foreach ($data as $element) {
             if (ArrayHelper::getValue($element, $this->parentColumnName) === $parentId) {
+                if($this->levelColumnName){
+                    $element[$this->levelColumnName] = $level;
+                }
+                $level++;
                 $result[] = $element;
-                $children = $this->normalizeData($data, ArrayHelper::getValue($element, $this->keyColumnName));
+                $children = $this->normalizeData($data, ArrayHelper::getValue($element, $this->keyColumnName), $level);
                 if ($children) {
                     $result = array_merge($result, $children);
                 }
