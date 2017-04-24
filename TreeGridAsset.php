@@ -14,6 +14,7 @@ class TreeGridAsset extends AssetBundle {
     public $sourcePath = '@bower/jquery-treegrid';
 
     public $js = [
+        'js/jquery.cookie.js',
         'js/jquery.treegrid.min.js',
     ];
 
