@@ -25,7 +25,7 @@ or add
 
 to the require section of your `composer.json` file.
 
-## How to use
+## Usage
 
 **Model**
 
@@ -111,5 +111,33 @@ use leandrogehlen\treegrid\TreeGrid;
     ]     
 ]); ?>
 ```
+
+## Adding resources
+
+When is necessary  to add other resource files, then should be used the [Dependency Injection](http://www.yiiframework.com/doc-2.0/guide-concept-di-container.html#registering-dependencies) concept.
+
+To use the `saveState` option it's necessary to add `jquery.cookie.js`.
+
+```php
+//config/web.php
+  
+$config = [
+  'id' => 'my-app',
+  'components' => [
+    ...
+  ]
+  ...
+]
+
+Yii::$container->set('leandrogehlen\treegrid\TreeGridAsset',[
+    'js' => [
+        'js/jquery.cookie.js',
+        'js/jquery.treegrid.min.js',
+    ]
+]);
+
+return $config;
+```
+
 
 
