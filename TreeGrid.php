@@ -397,7 +397,7 @@ class TreeGrid extends Widget
     protected function normalizeData(array $data, $parentId = null) {
         $result = [];
         foreach ($data as $element) {
-            if (ArrayHelper::getValue($element, $this->parentColumnName) === $parentId) {
+            if (ArrayHelper::getValue($element, $this->parentColumnName) == $parentId) {
                 $result[] = $element;
                 $children = $this->normalizeData($data, ArrayHelper::getValue($element, $this->keyColumnName));
                 if ($children) {
