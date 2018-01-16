@@ -2,14 +2,14 @@
 
 namespace leandrogehlen\treegrid;
 
-use Closure;
 use Yii;
-use yii\base\InvalidConfigException;
+use Closure;
 use yii\base\Widget;
+use yii\base\InvalidConfigException;
 use yii\grid\DataColumn;
-use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\helpers\Json;
+use yii\helpers\ArrayHelper;
 use yii\i18n\Formatter;
 
 /**
@@ -72,15 +72,15 @@ class TreeGrid extends Widget
     public $emptyTextOptions = ['class' => 'empty'];
 
     /**
-     * @var boolean whether to show the header section of the grid table.
+     * @var bool whether to show the header section of the grid table.
      */
     public $showHeader = true;
     /**
-     * @var boolean whether to show the footer section of the grid table.
+     * @var bool whether to show the footer section of the grid table.
      */
     public $showFooter = false;
     /**
-     * @var boolean whether to show the grid view if [[dataProvider]] returns no data.
+     * @var bool whether to show the grid view if [[dataProvider]] returns no data.
      */
     public $showOnEmpty = true;
 
@@ -407,4 +407,4 @@ class TreeGrid extends Widget
         }
         return $result;
     }
-} 
+}

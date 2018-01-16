@@ -3,14 +3,13 @@
 namespace leandrogehlen\treegrid;
 
 use Closure;
-use Yii;
 use yii\base\Model;
-use yii\base\Object;
+use yii\base\BaseObject;
 use yii\data\ActiveDataProvider;
 use yii\db\ActiveQueryInterface;
-use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\helpers\Inflector;
+use yii\helpers\ArrayHelper;
 
 /**
  * Column is the base class of all [[TreeGrid]] column classes.
@@ -18,7 +17,7 @@ use yii\helpers\Inflector;
  *
  * @author Leandro Gehlen <leandrogehlen@gmail.com>
  */
-class TreeColumn extends Object
+class TreeColumn extends BaseObject
 {
     /**
      * @var TreeGrid the grid view object that owns this column.
@@ -44,7 +43,7 @@ class TreeColumn extends Object
     public $content;
 
     /**
-     * @var boolean whether this column is visible. Defaults to true.
+     * @var bool whether this column is visible. Defaults to true.
      */
     public $visible = true;
 
@@ -96,7 +95,7 @@ class TreeColumn extends Object
     public $label;
 
     /**
-     * @var boolean whether the header label should be HTML-encoded.
+     * @var bool whether the header label should be HTML-encoded.
      * @see label
      */
     public $encodeLabel = true;
@@ -145,7 +144,7 @@ class TreeColumn extends Object
      * Renders a data cell.
      * @param mixed $model the data model being rendered
      * @param mixed $key the key associated with the data model
-     * @param integer $index the zero-based index of the data item among the item array returned by [[GridView::dataProvider]].
+     * @param int $index the zero-based index of the data item among the item array returned by [[GridView::dataProvider]].
      * @return string the rendering result
      */
     public function renderDataCell($model, $key, $index)
@@ -208,7 +207,7 @@ class TreeColumn extends Object
      * Renders the data cell content.
      * @param mixed $model the data model
      * @param mixed $key the key associated with the data model
-     * @param integer $index the zero-based index of the data model among the models array returned by [[GridView::dataProvider]].
+     * @param int $index the zero-based index of the data model among the models array returned by [[GridView::dataProvider]].
      * @return string the rendering result
      */
     protected function renderDataCellContent($model, $key, $index)
@@ -228,7 +227,7 @@ class TreeColumn extends Object
      * Returns the data cell value.
      * @param mixed $model the data model
      * @param mixed $key the key associated with the data model
-     * @param integer $index the zero-based index of the data model among the models array returned by [[GridView::dataProvider]].
+     * @param int $index the zero-based index of the data model among the models array returned by [[GridView::dataProvider]].
      * @return string the data cell value
      */
     public function getDataCellValue($model, $key, $index)
@@ -244,4 +243,4 @@ class TreeColumn extends Object
         }
         return null;
     }
-} 
+}
