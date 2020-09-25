@@ -390,16 +390,22 @@ class TreeGrid extends Widget
 
     /**
      * Normalize tree data
+     * 
      * @param array $data
-     * @param string $parentId
+     * @param null  $parentId
+     * @param array $backWalk Already passed nodes
      * @return array
      */
-    protected function normalizeData(array $data, $parentId = null) {
+    protected function normalizeData(array $data, $parentId = null, $backWalk = []) {
         $result = [];
         foreach ($data as $element) {
+            if (in_array(ArrayHelper::getValue($element, $this->keyColumnName), $backWalk)) {
+                continue;
+            }
             if (ArrayHelper::getValue($element, $this->parentColumnName) == $parentId) {
                 $result[] = $element;
-                $children = $this->normalizeData($data, ArrayHelper::getValue($element, $this->keyColumnName));
+                $backWalk[] = ArrayHelper::getValue($element, $this->keyColumnName);
+                $children = $this->normalizeData($data, ArrayHelper::getValue($element, $this->keyColumnName), $backWalk);
                 if ($children) {
                     $result = array_merge($result, $children);
                 }
