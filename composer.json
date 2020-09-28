@@ -1,5 +1,5 @@
 {
-    "name": "nikserg/yii2-treegrid",
+    "name": "leandrogehlen/yii2-treegrid",
     "description": "Extension for Yii2 Framework to work with jQuery TreeGrid",
     "keywords": ["yii2", "tree", "treeview", "treegrid", "interface"],
     "type": "yii2-extension",
