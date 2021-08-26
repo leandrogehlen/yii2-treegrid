@@ -247,7 +247,7 @@ class TreeGrid extends Widget
         Html::addCssClass($options, "treegrid-$id");
 
         $parentId = ArrayHelper::getValue($model, $this->parentColumnName);
-        if ($parentId) {
+        if ($parentId && $parentId != $this->parentRootValue) {
             if(ArrayHelper::getValue($this->pluginOptions, 'initialState') == 'collapsed'){
                 Html::addCssStyle($options, 'display: none;');
             }
